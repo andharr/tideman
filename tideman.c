@@ -225,12 +225,18 @@ bool checkCycle(int loser, int original_winner)
             }
             else
             {
-                //this works but I don't know why...
+                //This was the magic bullet. I WAS SO CLOSE!
                 if(checkCycle(j, original_winner))
                 {
                     return true;
                 }
             }
+            //I had this before which didn't work and I don't understand why:
+            // else
+            // {
+            //     loser = j;
+            //     checkCycle(loser, original_winner);
+            // }
         }
     }
     return false;
