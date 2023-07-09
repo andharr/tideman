@@ -224,9 +224,14 @@ bool checkCycle(int loser, int original_winner)
             }
             else
             {
+                loser = j;
                 //keep searching. how to do this correctly?
-                return checkCycle(j, original_winner);
+                checkCycle(loser, original_winner);
             }
+        }
+        else
+        {
+            continue;
         }
     }
     return false;
