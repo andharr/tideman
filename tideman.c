@@ -210,10 +210,8 @@ void lock_pairs(void)
 
 //return checkCycle(loser, n, original_winner)
 
-bool checkCycle(int loser, int n, int original_winner)
+bool checkCycle(int loser, int original_winner)
 {
-    //base case:
-    //TBD
     for (int j = 0; j < candidate_count; j++)
     {
         //see if the loser is a winner in a locked square
@@ -225,8 +223,7 @@ bool checkCycle(int loser, int n, int original_winner)
             }
             else
             {
-                loser = j;
-                checkCycle(loser, n + 1,  original_winner);
+                return checkCycle(j, original_winner);
             }
         }
     }
