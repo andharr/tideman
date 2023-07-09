@@ -219,14 +219,16 @@ bool checkCycle(int loser, int n, int original_winner)
         //see if the loser is a winner in a locked square
         if (locked[loser][j] == true)
         {
-            return true;
-        }
-        else
-        {
-            if (checkCycle(loser, n + 1, original_winner));
+            if (j == original_winner)
+            {
                 return true;
+            }
+            else
+            {
+                loser = j;
+                checkCycle(loser, n + 1,  original_winner);
+            }
         }
-
     }
     return false;
 }
