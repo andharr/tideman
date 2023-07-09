@@ -217,12 +217,14 @@ bool checkCycle(int loser, int original_winner)
         //see if the loser is a winner in a locked square
         if (locked[loser][j] == true)
         {
+            //if the loser is the same as the original winner it creates a cycle
             if (j == original_winner)
             {
                 return true;
             }
             else
             {
+                //keep searching. how to do this correctly?
                 return checkCycle(j, original_winner);
             }
         }
